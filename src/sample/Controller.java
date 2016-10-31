@@ -153,14 +153,21 @@ public class Controller {
 
     @FXML
     private void matrixInvertible() throws java.lang.InterruptedException, IOException {
-        bufferMatrix += "-1" + "\n";
+        bufferMatrix += output.getText() + "\n" + "-1" + "\n";
+        output.setText("");
+        matrixEquals();
+    }
+
+    @FXML
+    private void matrixDet() throws java.lang.InterruptedException, IOException {
+        bufferMatrix += output.getText() + "\n" + "det" + "\n";
         output.setText("");
         matrixEquals();
     }
 
     @FXML
     private void matrixTranspose() throws java.lang.InterruptedException, IOException {
-        bufferMatrix += "t" + "\n";
+        bufferMatrix += output.getText() + "\n" + "t" + "\n";
         output.setText("");
         matrixEquals();
     }
