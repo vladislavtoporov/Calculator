@@ -34,14 +34,14 @@ public class ReversePolishNotation {
 
     private char[] rpn(String currStatement) {
         char[] road = currStatement.toCharArray();
-        char[] currRPN = new char[2*road.length];
+        char[] currRPN = new char[2 * road.length];
         int inx = 0;
         StackArray stack = new StackArray(road.length);
         for (int i = 0; i < road.length; i++) {
             int currMove = priority(road[i]);
             if (currMove == 5) {
                 continue;
-            }else if (currMove == 4) {
+            } else if (currMove == 4) {
                 currRPN[inx++] = road[i];
             } else if (currMove == 3 || currMove == 2) {
                 currRPN[inx++] = ' ';
@@ -70,7 +70,7 @@ public class ReversePolishNotation {
         return currRPN;
     }
 
-    public String rpnResult () {
+    public String rpnResult() {
         char[] rpn = rpn(str);
         Stack<Double> stack = new Stack<>();
         char[] temp = new char[rpn.length];
@@ -79,7 +79,7 @@ public class ReversePolishNotation {
         int firstInx = (rpn[0] == ' ') ? 1 : 0;
         for (int i = firstInx; i < rpn.length; i++) {
             if (rpn[i] != '\u0000') {
-                if(rpn[i] >= '0' && rpn[i] <= '9' || rpn[i] == '.') {
+                if (rpn[i] >= '0' && rpn[i] <= '9' || rpn[i] == '.') {
                     temp[tempInx++] = rpn[i];
                 } else {
                     if (tempInx != 0) {
@@ -113,7 +113,7 @@ public class ReversePolishNotation {
             }
         }
         double ans = stack.pop();
-        int res = (int)ans;
+        int res = (int) ans;
         double res2 = ans - res;
         if (res2 == 0) {
             return Integer.toString(res);

@@ -1,15 +1,14 @@
 package sample;
 
 public class Model {
-    public String format(String buffer, String answer, String operator){
-        switch (operator){
+    public String format(String buffer, String answer, String operator) {
+        switch (operator) {
             case "AC":
                 return "";
             case "Del":
-                if (!buffer.isEmpty()){
+                if (!buffer.isEmpty()) {
                     return buffer.substring(0, buffer.length() - 1);
-                }
-                else
+                } else
                     return "";
             case "Ans":
                 return answer;
@@ -17,8 +16,8 @@ public class Model {
         return "";
     }
 
-    public String convert(String operator){
-        switch (operator){
+    public String convert(String operator) {
+        switch (operator) {
             case "!":
                 return "factorial";
             case "abs":
